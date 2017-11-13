@@ -1,6 +1,11 @@
+{% load staticfiles %}
 <html>
 <head>
     <title>Hercules Blog</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div>
@@ -8,11 +13,15 @@
 </div>
 
 <div>
-    <div>
-        <p>published: {{ post.published_date }}</p>
+    posts = {{posts}}
+
+    {% for post in posts %}
+    <div class="post_container">
         <h2><a href="">{{ post.title }}</a></h2>
-        <p>{{ post.text|linebreaksbr }}</p>
+        <p>published: {{ post.published_date }}</p>
+        <p>title: {{ post.text|linebreaksbr }}</p>
     </div>
+    {% endfor %}
 </div>
 </body>
 </html>
