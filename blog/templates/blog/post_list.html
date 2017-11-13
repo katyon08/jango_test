@@ -1,14 +1,17 @@
 <html>
-    <head>
-        <title>Django Girls blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Django Girls Blog</a></h1>
-        </div>
+<head>
+    <title>Hercules Blog</title>
+</head>
+<body>
+<div>
+    <h1><a href="/">Hercules Blog</a></h1>
+</div>
 
-        <div>
-            {{ posts }}
-        </div>
-    </body>
+<div>
+    {% for post in posts %}
+    {{ post }}
+    <hr>
+    {% endfor %}
+</div>
+</body>
 </html>
